@@ -36,15 +36,6 @@ do
       /usr/sbin/avahi-daemon -k
       /usr/sbin/avahi-daemon -D
     fi
-    if [ "`pidof nmbd`" != "" ]; then
-      killall -9 nmbd
-      nmbd -D
-    fi
-    echo "$cmd $params OK" >> /var/run/webres
-    cmd=""
-  fi
-  if [ "$cmd" = "rtspserver" ] && [ "$params" != "" ]; then
-    /scripts/rtspserver.sh $params
     echo "$cmd $params OK" >> /var/run/webres
     cmd=""
   fi
@@ -58,11 +49,6 @@ do
     echo "$cmd OK" >> /var/run/webres
     sleep 3
     /scripts/lighttpd.sh restart
-    cmd=""
-  fi
-  if [ "$cmd" = "samba" ] && [ "$params" != "" ]; then
-    /scripts/samba.sh $params
-    echo "$cmd $params OK" >> /var/run/webres
     cmd=""
   fi
   if [ "$cmd" = "sderase" ]; then

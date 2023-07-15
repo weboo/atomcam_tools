@@ -9,7 +9,6 @@ BEGIN {
   printf("10 * * * * /scripts/memory_check.sh\n");
   printf("* * * * * /scripts/health_check.sh\n");
   printf("* * * * * /scripts/lighttpd.sh watchdog >> /media/mmc/atomhack.log\n");
-  printf("* * * * * /scripts/rtspserver.sh watchdog >> /media/mmc/atomhack.log\n");
 }
 
 /REBOOT_SCHEDULE *=/ {
